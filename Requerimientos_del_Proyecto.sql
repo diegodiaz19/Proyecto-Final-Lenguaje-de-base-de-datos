@@ -1,7 +1,15 @@
 /* Se crean en la conexion de PROYECTO para que se almacenen en la base de datos  */
 
 /* Vistas */
+CREATE OR REPLACE VIEW Vista_Profesores_Cursos_Tareas AS
+SELECT p.nombreProf, p.apellidosProf, c.nombreCurso, t.descripcion, t.fechaIngreso, t.fechaRealizar, t.estado
+FROM Profesor p
+INNER JOIN Cursos c ON p.idProfesor = c.idProfesor
+INNER JOIN Tareas t ON c.idCurso = t.idCurso;
 
+ 
+
+SELECT * FROM Vista_Profesores_Cursos_Tareas;
 /* Andrés */
 create or replace view tareas_asignadas_recientemenete as 
 select FECHAINGRESO FROM tareas_asignadas
